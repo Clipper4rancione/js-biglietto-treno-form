@@ -1,42 +1,48 @@
 // domande all'utente
 
-const userKilometers = prompt('Quanti km vorresti percorrere?');
-const userAge = prompt('Quanti anni hai?');
+const userKilometers = document.getElementById('input-km').value;
+const userAge = document.getElementById('input-age').value;
 const priceForKm = 0.21;
 
 const juniorDiscount = 0.2;
 const seniorDiscount = 0.4;
 
-let msg, ticketPrice, discountPrice
+let msg, ticketPrice, discountPrice, discountMessageJunior, discountMessageSenior;
 
 ticketPrice = userKilometers * priceForKm;
-
-msg = `Il prezzo del biglietto è di € ${ticketPrice.toFixed(2)}.`
+discountMessageSenior = 'Biglietto scontato del 40%'
+discountMessage = 'Biglietto scontato del 20%'
+msg = 'Biglietto standard'
 
 //Input dei km inseriti in index.html
-document.getElementById('km-count').innerHTML = ` 
-    Il tuo percorso è lungo: ${userKilometers}km
-` ;
-
 //Input degli anni inseriti in index.html
-document.getElementById('age').innerHTML = ` 
-    Anni: ${userAge}
-` ;
 
 //calcolo prezzo del biglietto scontato per età
-if(userAge < 18){
+
+/*if(userAge < 18){
      discountPrice = ticketPrice * (1 - juniorDiscount);
-     msg += `
-     <br>
-     Dato che sei minorenne hai diritto a uno sconto del ${juniorDiscount * 100}% quindi il totale del tuo biglietto è di € ${discountPrice.toFixed(2)}
-     `
 }else if(userAge >= 65){
     discountPrice = ticketPrice * (1 - seniorDiscount);
-    msg += `
-    <br>
-    Dato che sei over 65 hai diritto a uno sconto del ${seniorDiscount * 100}% quindi il totale del tuo biglietto è di € ${discountPrice.toFixed(2)}
-    `
-};
+};*/
 
 //output prezzo del biglietto finale
-document.getElementById('result').innerHTML = msg;
+// \\;
+const btnSubmit = document.getElementById('submit');
+
+//click bottoni
+btnSubmit.addEventListener('click', function(){
+
+if(userAge < 18){
+    discountPrice = ticketPrice * (1 - juniorDiscount);
+    document.getElementById('output-price').innerHTML = discountPrice;
+}else if(userAge >= 65){
+    discountPrice = ticketPrice * (1 - seniorDiscount);
+    document.getElementById('output-price').innerHTML = discountPrice;
+}else if(userAge <= 64){
+    document.getElementById('output-price').innerHTML = ticketPrice;
+};
+
+const name = document.getElementById('inputName').value;
+document.getElementById('output-name').innerHTML = name;
+
+})

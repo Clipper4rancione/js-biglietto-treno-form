@@ -26,33 +26,29 @@
                     <div class="row d-flex align-items-center">
                         <div class="col-4">
                             <span class="input-title">Nome e Cognome</span>
-                            <input type="text">
+                            <input type="text" id="inputName" value="">
                         </div>
                         <div class="col-4">
                             <span class="input-title">Km Da percorrere</span>
-                            <input type="text">
+                            <input type="text" id="input-km">
                         </div>
                         <div class="col-4">
-                            <span class="input-title">Fascia d'età</span>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>-</option>
-                                <option value="1">Maggiorenne</option>
-                                <option value="2">Minorenne</option>
-                                <option value="3">Over 65</option>
-                            </select>
-                        </div>
+                            <span class="input-title">Inserisci la tua età</span>
+                            <input type="text" id="input-age" value="">
+                        </div> 
+                        
+                            <button id="submit">Genera</button>
+                            <button type="reset">Annulla</button>
+                        
                     </div>
-                    <div class="buttons">
-                        <button>Genera</button>
-                        <button>Annulla</button>
-                    </div>
+                   
                 </div>
                 
 
-                <div class="user-info">
+                <!-- <div class="user-info">
                     <div id="km-count"></div>
                     <div id="age"></div>
-                </div>
+                </div> -->
 
                 <div id="result"></div>
             </div>
@@ -61,7 +57,10 @@
                 <h2>IL TUO BIGLIETTO</h2>
                 <div class="container your-ticket">
                     <div class="row">
-                        <div class="col-3">IL TUO NOME:</div>
+                        <div class="col-3 name-col">
+                            <h2 class="text-center">IL TUO NOME</h2>
+                            <div id="output-name" class="text-center"></div>
+                        </div>
                         <div class="col-9">
                             <table class="table table-light m-auto">
                             <thead>
@@ -74,10 +73,10 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
+                                <td id="output-discount">Biglietto Standard</td>
+                                <td>75</td>
+                                <td>456453</td>
+                                <td id="output-price">-</td>
                             </tr>
                             </tbody>
                           </table>
@@ -91,6 +90,6 @@
 
 
 
-    <!-- <script src="js/script.js"></script> -->
+    <script src="js/script.js"></script>
 </body>
 </html>
