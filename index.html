@@ -12,14 +12,43 @@
     <title>JS - Biglietto Treno</title>
 </head>
 <body>
+    <header>
+        <div class="container title text-center">
+            <h1>CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
+        </div>
+    </header>
+    
+    <main class="d-flex flex-column justify-content-center align-items-center">
 
-    <main class="d-flex justify-content-center align-items-center">
         <div class="main-container p-4">
 
-            <div class="info-container">
-                <div>Prezzo del biglietto: 0.21€ km</div>
-                <div>Sconto under 18: -20%</div>
-                <div>Sconto over 65: -40%</div>
+            <div class="container info-container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-4">
+                        <span class="input-title">Nome e Cognome</span>
+                        <input type="text">
+                    </div>
+                    <div class="col-4">
+                        <span class="input-title">Km Da percorrere</span>
+                        <input type="text">
+                    </div>
+                    <div class="col-4">
+                        <span class="input-title">Fascia d'età</span>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>-</option>
+                            <option value="1">Maggiorenne</option>
+                            <option value="2">Minorenne</option>
+                            <option value="3">Over 65</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button>Genera</button>
+                    <button>Annulla</button>
+                </div>
+            </div>
+            <div class="container your-ticket">
+                
             </div>
 
             <div class="user-info">
@@ -33,6 +62,6 @@
 
 
 
-    <script src="js/script.js"></script>
+    <!-- <script src="js/script.js"></script> -->
 </body>
 </html>
