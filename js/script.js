@@ -1,48 +1,45 @@
-// domande all'utente
+//Elements
 
-const userKilometers = document.getElementById('input-km').value;
-const userAge = document.getElementById('input-age').value;
-const priceForKm = 0.21;
-
-const juniorDiscount = 0.2;
-const seniorDiscount = 0.4;
-
-let msg, ticketPrice, discountPrice, discountMessageJunior, discountMessageSenior;
-
-ticketPrice = userKilometers * priceForKm;
-discountMessageSenior = 'Biglietto scontato del 40%'
-discountMessage = 'Biglietto scontato del 20%'
-msg = 'Biglietto standard'
-
-//Input dei km inseriti in index.html
-//Input degli anni inseriti in index.html
-
-//calcolo prezzo del biglietto scontato per età
-
-/*if(userAge < 18){
-     discountPrice = ticketPrice * (1 - juniorDiscount);
-}else if(userAge >= 65){
-    discountPrice = ticketPrice * (1 - seniorDiscount);
-};*/
-
-//output prezzo del biglietto finale
-// \\;
 const btnSubmit = document.getElementById('submit');
+const inputName = document.getElementById('input-name');
+const inputKm = document.getElementById('input-km');
+const inputRange = document.getElementById('fascia');
+//OUTPUTS
+const outputName = document.getElementById('output-name')
+const outputDiscount = document.getElementById('output-discount');
+const outputCarrozza = document.getElementById('output-carrozza');
+const outputCp = document.getElementById('output-cp');
+const outputPrice = document.getElementById('output-price');
 
-//click bottoni
+//Dati
+
+let userName, totalKm, ageRange, totalPrice, carrozza, code;
+const juniorDiscount = .20;
+const seniorDiscount = .40;
+const priceForKm = .21;
+
+//Events
+
 btnSubmit.addEventListener('click', function(){
+    userName = inputName.value;
+    totalKm = inputKm.value;
+    ageRange = inputRange.value;
+    carrozza = Math.ceil(Math.random() * 12);
+    code = Math.floor(Math.random() * (999999 - 100000) +1) +100000;
+    totalPrice = totalKm * priceForKm;
 
-if(userAge < 18){
-    discountPrice = ticketPrice * (1 - juniorDiscount);
-    document.getElementById('output-price').innerHTML = discountPrice;
-}else if(userAge >= 65){
-    discountPrice = ticketPrice * (1 - seniorDiscount);
-    document.getElementById('output-price').innerHTML = discountPrice;
-}else if(userAge <= 64){
-    document.getElementById('output-price').innerHTML = ticketPrice;
-};
+    let labelDiscount = 'Biglietto Standard';
 
-const name = document.getElementById('inputName').value;
-document.getElementById('output-name').innerHTML = name;
+    //CALCOLO SCONTO
+    if(ageRange === 'minorenne'){
+        totalPrice *= totalPrice * (1 - juniorDiscount)
+    }else if(ageRange === 'senior'){
+        totalPrice *= (1 - seniorDiscount)
+    }
 
+    outputName.innerHTML = userName;
+    outputDiscount.innerHTML = labelDiscount;
+    outputCarrozza.innerHTML = carrozza;
+    outputCp.innerHTML = code;
+    outputPrice.innerHTML = '€ ' + totalPrice;
 })
